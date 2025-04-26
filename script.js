@@ -1,4 +1,4 @@
-// Datos de los Nueve Titanes con imágenes locales
+
 const titanes = [
     {
         nombre: "Titán de Ataque",
@@ -56,7 +56,7 @@ const titanes = [
     }
 ];
 
-// Datos de los personajes principales con imágenes locales
+
 const personajes = [
     {
         nombre: "Eren Yeager",
@@ -114,7 +114,7 @@ const personajes = [
     }
 ];
 
-// Función para crear tarjetas
+
 function crearTarjeta(item, tipo) {
     const tarjeta = document.createElement('div');
     tarjeta.className = 'card';
@@ -135,34 +135,34 @@ function crearTarjeta(item, tipo) {
     return tarjeta;
 }
 
-// Cargar contenido cuando el DOM esté listo
+
 document.addEventListener('DOMContentLoaded', () => {
     const titanesContainer = document.getElementById('titanes-container');
     const personajesContainer = document.getElementById('personajes-container');
     
-    // Cargar titanes
+   
     titanes.forEach(titan => {
         titanesContainer.appendChild(crearTarjeta(titan, 'titan'));
     });
     
-    // Cargar personajes
+    
     personajes.forEach(personaje => {
         personajesContainer.appendChild(crearTarjeta(personaje, 'personaje'));
     });
     
-    // Configurar contador
+    
     const counterImage = document.getElementById('counter-image');
     const counter = document.getElementById('counter');
     let muerteCount = localStorage.getItem('muerteCount') || 0;
     counter.textContent = muerteCount;
     
-    // Evento para el contador
+    
     counterImage.addEventListener('click', () => {
         muerteCount++;
         counter.textContent = muerteCount;
         localStorage.setItem('muerteCount', muerteCount);
         
-        // Efecto de intensificación
+        
         counter.classList.add('pulse');
         counterImage.style.transform = 'scale(1.1)';
         
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     });
     
-    // Manejo de errores para imágenes
+    
     document.querySelectorAll('img').forEach(img => {
         img.onerror = function() {
             this.src = 'images/placeholder.jpg';
